@@ -386,6 +386,105 @@
         .list a {
             background-color: white;
         }
+
+         /* --- Slider Container --- */
+    .slider {
+      position: relative;
+      width: 80%;
+      margin: 2rem auto;
+      overflow: hidden;
+    }
+
+    /* Hide all radio buttons (the “engine” of our CSS slider) */
+    .slider input[type="radio"] {
+      display: none;
+    }
+
+    /* --- Slides Wrapper --- */
+    .slides {
+      display: flex;
+      width: 300%; /* 3 slides => 300% */
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .slide {
+      width: 100%;
+      flex-shrink: 0; /* Prevent slides from shrinking */
+    }
+
+    .slide img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    /* --- Slide Positioning (Using the “checked” radio) --- */
+    #slide1:checked ~ .slides {
+      transform: translateX(0);
+    }
+    #slide2:checked ~ .slides {
+      transform: translateX(-33.3333%);
+    }
+    #slide3:checked ~ .slides {
+      transform: translateX(-66.6666%);
+    }
+
+    /* --- Arrows --- */
+    /* We’ll create 6 “labels” (prev/next for each of the 3 slides). 
+       Only the relevant pair will be shown depending on which radio is checked. 
+    */
+    .arrow-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0.6em 0.9em;
+      border-radius: 50%;
+      cursor: pointer;
+      text-decoration: none;
+      user-select: none;
+      z-index: 5;
+      display: none; /* hidden by default */
+    }
+    .arrow-btn:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    /* Specific left/right positions */
+    .prev { left: 10px; }
+    .next { right: 10px; }
+
+    /* --- Show the correct arrow pair for each slide --- */
+    /* Slide #1 is checked => Show #prev1 and #next1 */
+    #slide1:checked ~ .prev1,
+    #slide1:checked ~ .next1 {
+      display: block;
+    }
+
+    /* Slide #2 is checked => Show #prev2 and #next2 */
+    #slide2:checked ~ .prev2,
+    #slide2:checked ~ .next2 {
+      display: block;
+    }
+
+    /* Slide #3 is checked => Show #prev3 and #next3 */
+    #slide3:checked ~ .prev3,
+    #slide3:checked ~ .next3 {
+      display: block;
+    }
+
+    /* --- Responsive adjustments --- */
+    @media (max-width: 768px) {
+      .slider {
+        width: 95%;
+      }
+      .arrow-btn {
+        font-size: 1.5rem;
+        padding: 0.4em 0.7em;
+      }
+    }
     </style>
 </head>
 
@@ -411,15 +510,38 @@
     </header>
 
     <main>
-        <section class="hero" id="wavrooza">
-            <div class="hero-image">
-                <img src="https://img.freepik.com/free-vector/isolated-suitcases-white-background-bags-traveling_613284-2515.jpg?t=st=1736765470~exp=1736769070~hmac=36ab1e20030c2c310f2e5159a62984c06d37af5bca3909aeb0ee21cb4af9bdd5&w=740" alt="Suitcase">
-            </div>
-            <div class="hero-content">
-                <h1 class="d">Discover the Wide Range of unique bags</h1>
-                <a href="#products" class="cta-button">View Collection</a>
-            </div>
+        <section class="heroo" id="wavrooza">
+           <div class="slider">
+    <!-- Radio Buttons (Slide Triggers) -->
+    <input type="radio" name="slide" id="slide1" checked>
+    <input type="radio" name="slide" id="slide2">
+    <input type="radio" name="slide" id="slide3">
 
+    <!-- The 3 Slides -->
+    <div class="slides">
+      <div class="slide">
+        <img src="https://via.placeholder.com/900x500/ff7f7f/333333?text=Slide+1" alt="Slide 1">
+      </div>
+      <div class="slide">
+        <img src="https://via.placeholder.com/900x500/7fff7f/333333?text=Slide+2" alt="Slide 2">
+      </div>
+      <div class="slide">
+        <img src="https://via.placeholder.com/900x500/7f7fff/333333?text=Slide+3" alt="Slide 3">
+      </div>
+    </div>
+
+    <!-- Arrows for Slide #1 (go to #3 prev, go to #2 next) -->
+    <label for="slide3" class="arrow-btn prev prev1">&#10094;</label>
+    <label for="slide2" class="arrow-btn next next1">&#10095;</label>
+
+    <!-- Arrows for Slide #2 (go to #1 prev, go to #3 next) -->
+    <label for="slide1" class="arrow-btn prev prev2">&#10094;</label>
+    <label for="slide3" class="arrow-btn next next2">&#10095;</label>
+
+    <!-- Arrows for Slide #3 (go to #2 prev, go to #1 next) -->
+    <label for="slide2" class="arrow-btn prev prev3">&#10094;</label>
+    <label for="slide1" class="arrow-btn next next3">&#10095;</label>
+  </div>
         </section>
 
         
@@ -537,23 +659,7 @@
             </div>
         </section>
 
-        <section class="newsletter">
-            <div class="newsletter-content">
-                <h2>Exclusive perks await!</h2>
-                <p>Join us to access discounts, coupon codes, and stay in the loop with the latest updates.</p>
-                <form class="newsletter-form">
-                    <div class="input-group">
-                        <label for="firstName">First Name</label>
-                        <input type="text" id="firstName" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="email">Email*</label>
-                        <input type="email" id="email" required>
-                    </div>
-                    <button type="submit">Sign Up</button>
-                </form>
-            </div>
-        </section>
+        
 
         <style>
             .why-choose-us {
