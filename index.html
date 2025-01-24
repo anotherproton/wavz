@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wavrooza</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background-color: #D6C0B3;
+            font-family: Montserrat;
+
+        }
+
+        .trending-products-slider {
+            display: flex;
+            transition: transform 0.3s ease-out;
+            gap: 20px;
+            /* Space between cards */
+        }
+
+        /* Individual Product Card in Slider */
+        .trending-products-slider .review-card {
+            flex: 0 0 auto;
+            width: 300px;
+            /* Fixed width for each card */
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .trending-products-slider .product-card {
+            flex: 0 0 auto;
+            width: 300px;
+            /* Fixed width for each card */
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .trending-products-slider .product-card .product-image {
+            position: relative;
+        }
+
+        .trending-products-slider .product-card .product-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .trending-products-slider .product-card .discount-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff4d4d;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .trending-products-slider .product-card .product-badges {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .trending-products-slider .product-card .badge {
+            background: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        .trending-products-slider .product-card .product-info {
+            padding: 15px 0;
+        }
+
+        .trending-products-slider .product-card .product-info h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .trending-products-slider .product-card .product-features {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+
+        .trending-products-slider .product-card .product-features span {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .trending-products-slider .product-card .price-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .trending-products-slider .product-card .original-price {
+            text-decoration: line-through;
+            color: #999;
+        }
+
+        .trending-products-slider .product-card .price {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .trending-products-slider .product-card .add-to-cart {
+            background: #493628;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .trending-products-slider .product-card .add-to-cart:hover {
+            background: #3a2a1f;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* Distributes space between elements */
+            height: 100%;
+            /* Ensures the card takes full height */
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            text-align: center;
+        }
+
+        .product-info {
+            flex-grow: 1;
+            /* Allows the product info to take up remaining space */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* Ensures the button stays at the bottom */
+        }
+
+        .add-to-cart {
+            margin-top: auto;
+            /* Pushes the button to the bottom */
+            background: #493628;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            width: 100%;
+            /* Ensures the button spans the full width */
+        }
+
+        .add-to-cart:hover {
+            background: #3a2a1f;
+        }
+
+        .trending-products-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .trending-products-slider .product-card {
+                width: 250px;
+                /* Smaller cards for tablets */
+            }
+
+            .nav-button {
+                width: 30px;
+                height: 30px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .trending-products-slider .product-card {
+                width: 300px;
+                height: 600px;
+                /* Smaller cards for mobile */
+            }
+
+            .nav-button {
+                width: 25px;
+                height: 25px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .trending-products-slider .review-card {
+                width: 250px;
+                /* Smaller cards for tablets */
+            }
+
+        }
+
+        @media (max-width: 480px) {
+            .trending-products-slider .review-card {
+                width: 200px;
+                /* Smaller cards for mobile */
+            }
+        }
+
+        /* Slider Navigation Buttons */
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .prev-button {
+            left: 10px;
+        }
+
+        .next-button {
+            right: 10px;
+        }
+
+        /* Hide scrollbar */
+        .trending-products-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .features {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #D6C0B3;
+            padding: 20px 10px;
+            flex-wrap: wrap;
+            /* Enables wrapping for smaller screens */
+        }
+
+        .feature-item {
+            text-align: center;
+            color: #493628;
+            font-family: Arial, sans-serif;
+            flex: 1 1 200px;
+            /* Adjusts the layout for responsiveness */
+            margin: 10px;
+        }
+
+        .features-highlight {
+            padding: 40px 20px;
+            background-color: #D6C0B3;
+        }
+
+        .features-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            flex: 1 1 250px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: #493628;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        /* Responsive Design for Features Highlight */
+        @media (max-width: 768px) {
+            .feature-card {
+                flex: 1 1 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature-card {
+                flex: 1 1 100%;
+            }
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            /* Icon size */
+            color: #493628;
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            font-size: 18px;
+            font-weight: 500;
+            color: #493628;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .feature-icon {
+                font-size: 30px;
+                /* Reduce icon size for smaller screens */
+            }
+
+            .feature-item p {
+                font-size: 12px;
+                /* Reduce text size for smaller screens */
+            }
+
+            .reviews-slider {
+                justify-content: center;
+            }
+        }
+
+        .products h2 {
+            color: #493628;
+        }
+
+        .header {
+            background-color: #493628;
+            color: white;
+        }
+
+        .navbar a {
+            color: white;
+        }
+
+        .navbar li a {
+            color: white;
+        }
+
+        .hero {
+            background-color: #D6C0B3;
+        }
+
+        .hero-content h1 {
+            color: #493628;
+            width: 100%;
+        }
+
+        .list a {
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">WAVROOZA</a>
+            </div>
+            <!-- Hamburger Menu Icon -->
+            <div class="hamburger" onclick="toggleMenu()" style="color: white">
+                ☰
+            </div>
+            <!-- Navigation Links -->
+            <ul id="nav-links">
+                <li class="list"><a href="index.html">Home</a></li>
+                <li class="list"><a href="index.html#products">Collection</a></li>
+                <li class="list"><a href="privacy.html">Privacy</a></li>
+                <li class="list"><a href="terms.html">Terms</a></li>
+                <li class="list"><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="wavrooza">
+            <div class="hero-image">
+                <img src="https://img.freepik.com/free-vector/isolated-suitcases-white-background-bags-traveling_613284-2515.jpg?t=st=1736765470~exp=1736769070~hmac=36ab1e20030c2c310f2e5159a62984c06d37af5bca3909aeb0ee21cb4af9bdd5&w=740" alt="Suitcase">
+            </div>
+            <div class="hero-content">
+                <h1 class="d">Discover the Wide Range of unique bags</h1>
+                <a href="#products" class="cta-button">View Collection</a>
+            </div>
+
+        </section>
+
+        <section class="customer-love">
+            <div class="customer-love-content">
+                <h2>Loved by 2k+ Customers</h2>
+                <br>
+                <p class="join">Explore premium, stylish bags designed for durability, functionality, and eco-conscious
+                    elegance.</p>
+            </div>
+        </section>
+
+        <section id="products" class="products">
+            <h2>Our Collection</h2>
+            <div class="product-grid">
+                <!-- Products will be loaded dynamically -->
+            </div>
+        </section>
+        <!-- Gallery Section -->
+        <div class="section-header" id="testimonials">
+            <h2>Trending Products</h2>
+        </div>
+        <div class="slider-container">
+            <button class="nav-button prev-button">←</button>
+            <button class="nav-button next-button">→</button>
+            <div class="trending-products-slider">
+                <!-- Products will be loaded dynamically here -->
+            </div>
+        </div>
+
+        <!-- Why Choose Us Section -->
+        <section class="why-choose-us">
+            <div class="section-header">
+                <h2>Why Choose WAVROOZA</h2>
+                <p>Experience the difference with our premium quality</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class=""></i>
+                    <h3>Wide Range of Styles</h3>
+                    <br>
+                    <p>showcase the variety that caters to all lifestyles and occasions</p>
+                </div>
+                <div class="benefit-card">
+                    <i class=></i>
+                    <h3>Affordable Pricing</h3>
+                    <br>
+                    <p>Offer a great balance between quality and price</p>
+                </div>
+                <div class="benefit-card">
+                    <i class=""></i>
+                    <h3>Premium Quality</h3>
+                    <br>
+                    <p>Built with high-grade materials for durability and performance.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class=""></i>
+                    <h3>24/7 Support</h3>
+                    <br>
+                    <p>Our dedicated team is always here to help you.</p>
+                </div>
+            </div>
+        </section>
+        <section class="features-highlight">
+            <div class="features-container">
+                <div class="feature-card">
+                    <i class=""></i>
+                    <h3>Customisable Options</h3>
+                    <p>Personalize your bags to suit your style and needs.</p>
+                </div>
+                <div class="feature-card">
+                    <i class=""></i>
+                    <h3>Easy Returns & Exchanges</h3>
+                    <p>Hassle-free returns and exchanges within 10 days.</p>
+                </div>
+                <div class="feature-card">
+                    <i class=""></i>
+                    <h3>Wide Range of Products</h3>
+                    <p>Explore our extensive collection of premium bags.</p>
+                </div>
+            </div>
+        </section>
+
+
+
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Get quick answers to your questions about our bags</p>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3><i class="fas fa-plus"></i>What materials are your trolley bags made of?</h3>
+                    <p>Our trolley bags are made from durable materials like high-quality polycarbonate, polyester, and
+                        ABS, ensuring strength and lightweight convenience.
+                    </p>
+                </div>
+                <div class="faq-item">
+                    <h3><i class="fas fa-plus"></i>Do you offer international shipping?</h3>
+                    <p>Yes, we offer international shipping to most countries. Shipping fees and delivery times vary
+                        based on location.</p>
+                </div>
+                <div class="faq-item">
+                    <h3><i class="fas fa-plus"></i>Can I return or exchange my trolley bag?</h3>
+                    <p>Yes, we have a 10-day return and exchange policy for unused items. Please refer to our returns
+                        page for more details.</p>
+                </div>
+                <div class="faq-item">
+                    <h3><i class="fas fa-plus"></i>What payment methods do you accept?</h3>
+                    <p>We accept credit cards, debit cards, PayPal, and other secure payment methods.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <div class="newsletter-content">
+                <h2>Exclusive perks await!</h2>
+                <p>Join us to access discounts, coupon codes, and stay in the loop with the latest updates.</p>
+                <form class="newsletter-form">
+                    <div class="input-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </section>
+
+        <style>
+            .why-choose-us {
+                padding: 80px 20px;
+                background: #D6C0B3;
+            }
+
+            .section-header {
+                text-align: center;
+                margin-bottom: 40px;
+                background-color: #D6C0B3;
+            }
+
+            .section-header h2 {
+                font-size: 2.5em;
+                color: #493628;
+                margin-bottom: 10px;
+            }
+
+            .benefits-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 30px;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .benefit-card {
+                background: white;
+                padding: 30px;
+                border-radius: 10px;
+                text-align: center;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s;
+            }
+
+            .benefit-card:hover {
+                transform: translateY(-5px);
+            }
+
+            .benefit-card i {
+                font-size: 2.5em;
+                color: #4CAF50;
+                margin-bottom: 20px;
+            }
+
+            .slider-container {
+                position: relative;
+                overflow: hidden;
+                width: 100%;
+                padding: 20px 0;
+            }
+
+
+
+            .join {
+                color: white;
+            }
+
+
+            .customer-reviews {
+                padding: 80px 20px;
+            }
+
+            .reviews-slider {
+                display: flex;
+                gap: 2rem;
+                transition: transform 0.3s ease-out;
+                scroll-behavior: smooth;
+                flex-wrap: nowrap !important;
+                /* Force horizontal layout */
+                width: fit-content;
+                /* Ensure container fits all slides */
+            }
+
+            .reviews-slider::-webkit-scrollbar {
+                display: none;
+            }
+
+            .review-card {
+                flex: 0 0 auto;
+                width: calc(100vw - 4rem);
+                /* Account for container padding */
+                max-width: 350px;
+                padding: 1.5rem;
+                border-radius: 8px;
+                background: white;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .stars {
+                color: #FFD700;
+                margin-bottom: 0.5rem;
+            }
+
+            .review-title {
+                font-size: 1.2rem;
+                font-weight: bold;
+                margin-bottom: 0.5rem;
+                color: #333;
+            }
+
+
+            .review-text {
+                color: #666;
+                margin-bottom: 1rem;
+                font-size: 0.9rem;
+                line-height: 1.4;
+            }
+
+            .reviewer {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+            }
+
+            .reviewer-image {
+                width: 50px;
+                height: 50px;
+                object-fit: cover;
+            }
+
+            .reviewer-name {
+                color: #666;
+                font-size: 0.9rem;
+            }
+
+            .reviewer-info h4 {
+                color: #333;
+                margin-bottom: 5px;
+            }
+
+            .nav-button {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                background: white;
+                border: none;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+                z-index: 10;
+            }
+
+            .prev-button {
+                left: 1rem;
+            }
+
+            .next-button {
+                right: 1rem;
+            }
+
+            .faq-section {
+                padding: 80px 20px;
+                background: #D6C0B3;
+            }
+
+            .faq-grid {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+
+            .faq-item {
+                background: white;
+                padding: 20px;
+                border-radius: 10px;
+                margin-bottom: 20px;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .faq-item h3 {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: #333;
+            }
+
+            .faq-item p {
+                display: none;
+                margin-top: 15px;
+                color: #666;
+                padding-left: 24px;
+            }
+
+            .faq-item.active p {
+                display: block;
+            }
+
+            customer-love {
+                text-align: center;
+                padding: 40px 20px;
+                background-color: #ffffff;
+                margin: 20px 0;
+            }
+
+            .customer-love-content h2 {
+                font-size: 2.5rem;
+                color: #493628;
+                margin-bottom: 10px;
+                margin-top: 20px;
+                text-align: center;
+                font-family: 'Poppins', sans-serif;
+            }
+
+            .customer-love-content p {
+                font-size: 1.2rem;
+                color: black;
+                max-width: 800px;
+                margin: 0 auto;
+                text-align: center;
+                font-family: 'Poppins', sans-serif;
+            }
+
+            .section-header p {
+                color: #493628;
+            }
+
+            @media (max-width: 768px) {
+
+
+                .customer-love-content p {
+                    font-size: 1rem;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                }
+            }
+
+            @media (max-width: 480px) {
+
+
+                .customer-love-content p {
+                    font-size: 1rem;
+                    margin-left: 10px;
+                    margin-right: 10px;
+                }
+            }
+        </style>
+
+        <script>
+            // FAQ Toggle functionality
+            document.querySelectorAll('.faq-item h3').forEach(header => {
+                header.addEventListener('click', () => {
+                    const item = header.parentElement;
+                    const icon = header.querySelector('i');
+
+                    // Toggle FAQ answer
+                    const answer = item.querySelector('p');
+                    answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+
+                    // Toggle icon
+                    icon.classList.toggle('fa-plus');
+                    icon.classList.toggle('fa-minus');
+                });
+            });
+            const slider = document.querySelector('.reviews-slider');
+            const cards = document.querySelectorAll('.review-card');
+            const prevBtn = document.querySelector('.prev-button');
+            const nextBtn = document.querySelector('.next-button');
+
+            // Clone cards for infinite scroll
+            cards.forEach(card => {
+                const clone = card.cloneNode(true);
+                slider.appendChild(clone);
+            });
+
+            let currentIndex = 0;
+            const cardWidth = cards[0].offsetWidth + 32; // Including gap
+            let isTransitioning = false;
+
+            function slideNext() {
+                if (isTransitioning) return;
+                currentIndex++;
+                updateSlider();
+            }
+
+            function slidePrev() {
+                if (isTransitioning) return;
+                currentIndex--;
+                updateSlider();
+            }
+
+            function updateSlider() {
+                isTransitioning = true;
+                const offset = -currentIndex * cardWidth;
+                slider.style.transform = `translateX(${offset}px)`;
+
+                // Reset position when reaching the end or beginning
+                setTimeout(() => {
+                    if (currentIndex >= cards.length) {
+                        currentIndex = 0;
+                        slider.style.transition = 'none';
+                        slider.style.transform = 'translateX(0)';
+                        setTimeout(() => {
+                            slider.style.transition = 'transform 0.3s ease-out';
+                        }, 10);
+                    } else if (currentIndex < 0) {
+                        currentIndex = cards.length - 1;
+                        slider.style.transition = 'none';
+                        slider.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+                        setTimeout(() => {
+                            slider.style.transition = 'transform 0.3s ease-out';
+                        }, 10);
+                    }
+                    isTransitioning = false;
+                }, 300);
+            }
+
+            nextBtn.addEventListener('click', slideNext);
+            prevBtn.addEventListener('click', slidePrev);
+
+            // Touch and mouse drag functionality
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            let initialTransform;
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX;
+                initialTransform = getTransformValue();
+            });
+
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX;
+                const walk = (startX - x) * 2;
+                const newTransform = initialTransform - walk;
+                slider.style.transform = `translateX(${-newTransform}px)`;
+            });
+
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                const currentTransform = getTransformValue();
+                currentIndex = Math.round(currentTransform / cardWidth);
+                updateSlider();
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                if (isDown) {
+                    isDown = false;
+                    updateSlider();
+                }
+            });
+
+            function getTransformValue() {
+                const transform = window.getComputedStyle(slider).getPropertyValue('transform');
+                const matrix = new DOMMatrix(transform);
+                return -matrix.m41 / cardWidth;
+            }
+
+            // Auto-play functionality
+            let autoPlayInterval = setInterval(slideNext, 3000);
+
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(autoPlayInterval);
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                autoPlayInterval = setInterval(slideNext, 3000);
+            });
+        </script>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 style="font-size: 3rem; text-align: center;">WAVROOZA</h3>
+            </div>
+            <div class="footer-grid">
+                <!-- Company Info -->
+
+
+                <!-- Quick Links -->
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#products">Collection</a></li>
+                        <li><a href="terms.html">Terms and Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+
+
+                <!-- Newsletter -->
+                <div class="footer-section">
+                    <h3 style="text-align: right;">Sign up and Get 5% Off On Your First Order</h3>
+                    <div class="social-links" style="justify-content: right;">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Footer -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 WAVROOZA. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function addToCart(button) {
+            const productId = button.getAttribute('data-product-id');
+            window.location.href = `product-detail.html?id=${productId}`;
+        }
+
+        async function loadAllProducts() {
+            try {
+                const response = await fetch('/products.json');
+                const data = await response.json();
+                const productGrid = document.querySelector('.product-grid');
+                const trendingSlider = document.querySelector('.trending-products-slider');
+
+                productGrid.innerHTML = '';
+                trendingSlider.innerHTML = '';
+
+                Object.entries(data.products).forEach(([id, product], index) => {
+                    // Product card for the Products section (only first 3 products)
+                    if (index < 3) {
+                        const productHTML = `
+                    <div class="product-card">
+                        <div class="product-image">
+                            <a href="product-detail.html?id=${id}">
+                                <img src="${product.mainImage}" alt="${product.name}">
+                            </a>
+                            <span class="discount-tag">-${product.discount}%</span>
+                            ${product.badges.length ? `
+                                <div class="product-badges">
+                                    ${product.badges.map(badge => `
+                                        <span class="badge ${badge}">${badge.charAt(0).toUpperCase() + badge.slice(1)}</span>
+                                    `).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+                        <div class="product-info">
+                            <h3>${product.name}</h3>
+                            <div class="product-features">
+                                ${product.features.length > 0 ? `<span>${product.features[0].text}</span>` : ''}
+                            </div>
+                            <div class="price-container">
+                                <p class="original-price">$${product.originalPrice}</p>
+                                <p class="price">$${product.currentPrice}</p>
+                            </div>
+                            <button class="add-to-cart" onclick="addToCart(this)" data-product-id="${id}">Add to Cart</button>
+                        </div>
+                    </div>
+                `;
+                        productGrid.innerHTML += productHTML;
+                    }
+
+                    // Product card for the Trending Products section (all products)
+                    const trendingProductHTML = `
+                <div class="product-card">
+                    <div class="product-image">
+                        <a href="product-detail.html?id=${id}">
+                            <img src="${product.mainImage}" alt="${product.name}">
+                        </a>
+                        <span class="discount-tag">-${product.discount}%</span>
+                        <!-- Badges are removed for trending products -->
+                    </div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <div class="product-features">
+                            ${product.features.length > 0 ? `<span>${product.features[0].text}</span>` : ''}
+                        </div>
+                        <div class="price-container">
+                            <p class="original-price">$${product.originalPrice}</p>
+                            <p class="price">$${product.currentPrice}</p>
+                        </div>
+                        <button class="add-to-cart" onclick="addToCart(this)" data-product-id="${id}">Add to Cart</button>
+                    </div>
+                </div>
+            `;
+                    trendingSlider.innerHTML += trendingProductHTML;
+                });
+
+                initializeSlider();
+            } catch (error) {
+                console.error('Error loading products:', error);
+            }
+        }
+
+        function initializeSlider() {
+            const slider = document.querySelector('.trending-products-slider');
+            const cards = document.querySelectorAll('.trending-products-slider .product-card');
+            const prevBtn = document.querySelector('.prev-button');
+            const nextBtn = document.querySelector('.next-button');
+
+            // Clone the first and last few cards for infinite loop
+            const firstCard = cards[0].cloneNode(true);
+            const lastCard = cards[cards.length - 1].cloneNode(true);
+            slider.prepend(lastCard); // Prepend the last card to the beginning
+            slider.append(firstCard); // Append the first card to the end
+
+            let currentIndex = 1; // Start at the first original card
+            const cardWidth = cards[0].offsetWidth + 20; // Width of each card including gap
+            let isTransitioning = false;
+
+            function slideNext() {
+                if (isTransitioning) return;
+                currentIndex++;
+                updateSlider();
+            }
+
+            function slidePrev() {
+                if (isTransitioning) return;
+                currentIndex--;
+                updateSlider();
+            }
+
+            function updateSlider() {
+                isTransitioning = true;
+                const offset = -currentIndex * cardWidth;
+                slider.style.transition = 'transform 0.3s ease-out';
+                slider.style.transform = `translateX(${offset}px)`;
+
+                // Reset position when reaching the cloned cards
+                setTimeout(() => {
+                    if (currentIndex >= cards.length) {
+                        currentIndex = 1; // Reset to the first original card
+                        slider.style.transition = 'none'; // Disable transition for instant reset
+                        slider.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+                    } else if (currentIndex < 0) {
+                        currentIndex = cards.length; // Reset to the last original card
+                        slider.style.transition = 'none'; // Disable transition for instant reset
+                        slider.style.transform = `translateX(${-currentIndex * cardWidth}px)`;
+                    }
+                    isTransitioning = false;
+                }, 300);
+            }
+
+            // Event listeners for navigation buttons
+            nextBtn.addEventListener('click', slideNext);
+            prevBtn.addEventListener('click', slidePrev);
+
+            // Auto-play functionality
+            let autoPlayInterval = setInterval(slideNext, 3000);
+
+            slider.addEventListener('mouseenter', () => {
+                clearInterval(autoPlayInterval);
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                autoPlayInterval = setInterval(slideNext, 3000);
+            });
+
+            // Touch and mouse drag functionality
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            let initialTransform;
+
+            slider.addEventListener('mousedown', (e) => {
+                isDown = true;
+                startX = e.pageX;
+                initialTransform = getTransformValue();
+            });
+
+            slider.addEventListener('mousemove', (e) => {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.pageX;
+                const walk = (startX - x) * 2;
+                const newTransform = initialTransform - walk;
+                slider.style.transform = `translateX(${-newTransform}px)`;
+            });
+
+            slider.addEventListener('mouseup', () => {
+                isDown = false;
+                const currentTransform = getTransformValue();
+                currentIndex = Math.round(currentTransform / cardWidth);
+                updateSlider();
+            });
+
+            slider.addEventListener('mouseleave', () => {
+                if (isDown) {
+                    isDown = false;
+                    updateSlider();
+                }
+            });
+
+            function getTransformValue() {
+                const transform = window.getComputedStyle(slider).getPropertyValue('transform');
+                const matrix = new DOMMatrix(transform);
+                return -matrix.m41 / cardWidth;
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            loadAllProducts();
+            initializeSlider();
+        });
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>

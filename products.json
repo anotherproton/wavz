@@ -1,0 +1,115 @@
+{
+    "products": {
+        "1": {
+            "name": "3-Piece Luggage Set ",
+            "originalPrice": 77.99,
+            "currentPrice": 18.71,
+            "discount": 76,
+            "mainImage": "https://img.kwcdn.com/product/fancy/7e2ed1bc-c829-40db-ba9e-05f4a6758ef8.jpg?imageView2/2/w/800/q/70/format/webp",
+            "thumbnails": [
+                "https://img.kwcdn.com/product/fancy/7e2ed1bc-c829-40db-ba9e-05f4a6758ef8.jpg?imageView2/2/w/800/q/70/format/webp",
+                "https://img.kwcdn.com/product/fancy/bf4f0901-388e-4ebb-a979-8058d42209d5.jpg?imageView2/2/w/800/q/70/format/webp",
+                "https://img.kwcdn.com/product/fancy/975ceb09-207d-4661-ab00-3f37625f697c.jpg?imageView2/2/w/800/q/70/format/webp"
+            ],
+            "badges": ["bestseller"],
+            "features": [
+                { "icon": "", "text": "Smooth-Rolling Trolley Wheels" },
+                { "icon": "", "text": "" }
+            ],
+            "description": "ABS Shell, Telescoping Handle, Spinner Wheels, Smooth-Rolling Trolley Wheels, Combination Locks - Perfect for All Trips, 20/24/28 Inches"
+        },
+        "2": {
+            "name": "2-in-1 Travel Set",
+            "originalPrice": 54.75,
+            "currentPrice": 27.37,
+            "discount": 50,
+            "mainImage": "https://img.kwcdn.com/product/open/6285c65af0654d2dad44dc62ef287707-goods.jpeg?imageView2/2/w/800/q/70/format/webp",
+            "thumbnails": [
+                "https://img.kwcdn.com/product/open/6285c65af0654d2dad44dc62ef287707-goods.jpeg?imageView2/2/w/800/q/70/format/webp",
+                "https://img.kwcdn.com/product/fancy/297dcd61-6db8-4e5c-a602-6707035d9cf7.jpg?imageView2/2/w/800/q/70/format/webp",
+                "https://img.kwcdn.com/product/fancy/36efb639-ec78-4d74-9f6b-c780be83c37f.jpg?imageView2/2/w/800/q/70/format/webp"
+            ],
+            "badges": ["trending"],
+            "features": [
+                { "icon": "", "text": "Multiple Pockets" },
+                { "icon": "", "text": "Unisex Bag" }
+            ],
+            "description": "COOFAY 2-in-1 Travel Set, 13-inch Cosmetic Case & 20-inch Carry-On Luggage, Multi-functional High-Capacity, Heavy-Duty PP Material, Unisex Backpack, Laptop Bag for 15.6-inch Notebook, Dry Clean, with Airline-Approved Size & Password Zipper"
+        },
+        "3": {
+            "name": "Spinner Luggage Set",
+            "originalPrice": 52.10,
+            "currentPrice": 23.44,
+            "discount": 45,
+            "mainImage": "https://img.kwcdn.com/product/fancy/54586742-b83a-42a8-a333-9edef0d78f39.jpg?imageView2/2/w/800/q/70/format/webp",
+            "thumbnails": [
+                "https://img.kwcdn.com/product/fancy/54586742-b83a-42a8-a333-9edef0d78f39.jpg?imageView2/2/w/800/q/70/format/webp",
+                "https://img.kwcdn.com/product/fancy/670559f6-5e65-4b0f-a4f7-c88df1885ce2.jpg?imageView2/2/w/800/q/70/format/webp",
+                "https://img.kwcdn.com/product/fancy/334344f4-ab41-4a69-af23-d04c6a628c4e.jpg?imageView2/2/w/800/q/70/format/webp"
+            ],
+            "badges": ["trending"],
+            "features": [
+                { "icon": "", "text": "Hardshell Suitcase" },
+                { "icon": "", "text": "" }
+            ],
+            "description": "1set Coofay 20-Inch Spinner Luggage Set, PP Hardshell Suitcase with Quiet Wheels, Zippered Travel Tote, Toiletry & Makeup Bag, Dry Clean Only"
+        },
+        "4": {
+            "name": "Softside Luggage Set",
+            "originalPrice": 89.99,
+            "currentPrice": 49.72,
+            "discount": 44,
+            "mainImage": "https://img.kwcdn.com/product/fancy/8cab6fee-e613-4f37-94d8-523e0f74f227.jpg?imageView2/2/w/800/q/70/format/webp",
+            "thumbnails": [
+                "https://img.kwcdn.com/product/fancy/8cab6fee-e613-4f37-94d8-523e0f74f227.jpg?imageView2/2/w/800/q/70/format/webp",
+                "https://img.kwcdn.com/product/fancy/397ba1a8-be47-4abc-b22e-ea6459e90777.jpg?imageView2/2/w/800/q/70/format/webp",
+                "https://img.kwcdn.com/product/fancy/9a4230a1-de74-47fd-abe4-76a61d8cd2ab.jpg?imageView2/2/w/800/q/70/format/webp"
+            ],
+            "badges": ["new"],
+            "features": [
+                { "icon": "", "text": "Lightweight & Durable Material" },
+                { "icon": "", "text": "Multiple Compartments" },
+                { "icon": "", "text": "Expandable Design" }
+            ],
+            "description": "Softside Luggage Set made from lightweight and durable fabric, featuring multiple compartments for organized packing, expandable design for extra space, and smooth-rolling spinner wheels for easy mobility. Perfect for short trips and weekend getaways."
+        },
+        "5": {
+            "name": "Utility Suitcase",
+            "originalPrice": 256.84,
+            "currentPrice": 34.93,
+            "discount": 86,
+            "mainImage": "https://img.kwcdn.com/product/fancy/e1c1cd41-a53b-4ab9-ab6b-f44aa57cae26.jpg?imageView2/2/w/800/q/70/format/webp",
+            "thumbnails": [
+                "https://img.kwcdn.com/product/fancy/e1c1cd41-a53b-4ab9-ab6b-f44aa57cae26.jpg?imageView2/2/w/800/q/70/format/webp",
+                "https://img.kwcdn.com/product/fancy/708bd3c0-00a7-4e7a-81e0-7f354e69ffd8.jpg?imageView2/2/w/800/q/70/format/webp",
+                "https://img.kwcdn.com/product/fancy/c9f5f133-d00e-49ea-b91f-341c39785eba.jpg?imageView2/2/w/800/q/70/format/webp"
+            ],
+            "badges": ["bestseller"],
+            "features": [
+                { "icon": "", "text": "Convertible Design" },
+                { "icon": "", "text": "USB Charging Port" },
+                { "icon": "", "text": "TSA-Approved Lock" }
+            ],
+            "description": "Multifunctional Suitcase with a convertible design that adapts to your travel needs. Features a built-in USB charging port, TSA-approved lock for security, and a spacious interior with compression straps. Ideal for business trips and long vacations."
+        },
+        "6": {
+            "name": "Carry-on Luggage",
+            "originalPrice": 354.99,
+            "currentPrice": 63.52,
+            "discount": 82,
+            "mainImage": "https://img.kwcdn.com/product/fancy/fa0659d4-9b1f-485e-8549-fe76a4a0c034.jpg?imageView2/2/w/800/q/70/format/webp",
+            "thumbnails": [
+                "https://img.kwcdn.com/product/fancy/fa0659d4-9b1f-485e-8549-fe76a4a0c034.jpg?imageView2/2/w/800/q/70/format/webp",
+                "https://img.kwcdn.com/product/fancy/04e94a8b-4953-4b06-947f-6232791369d7.jpg?imageView2/2/w/800/q/70/format/webp",
+                "https://img.kwcdn.com/product/fancy/6c39a1b1-c433-455e-b488-e1bb3eefe3c2.jpg?imageView2/2/w/800/q/70/format/webp"
+            ],
+            "badges": ["trending"],
+            "features": [
+                { "icon": "", "text": "Compact & Lightweight" },
+                { "icon": "", "text": "Airline-Approved Size" },
+                { "icon": "", "text": "Ergonomic Handle" }
+            ],
+            "description": "Carry-on Luggage designed for convenience and portability. Compact and lightweight, it meets airline size requirements for overhead compartments. Features an ergonomic handle, smooth spinner wheels, and a durable hardshell exterior for hassle-free travel."
+        }
+    }
+}
